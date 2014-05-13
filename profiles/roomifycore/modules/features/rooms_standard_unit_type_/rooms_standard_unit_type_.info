@@ -1,0 +1,14 @@
+name = Rooms Standard Unit Type 
+description = A standard unit type
+core = 7.x
+package = Rooms Example
+version = 7.x-1.0
+project = rooms_standard_unit_type_
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = rooms
+dependencies[] = rooms_unit
+features[features_api][] = api:2
+features[field_base][] = rooms_booking_unit_options
+features[field_instance][] = rooms_unit-standard_room-rooms_booking_unit_options
+features[rooms_unit_type][] = standard_room

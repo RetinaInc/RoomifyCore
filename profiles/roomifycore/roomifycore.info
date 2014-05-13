@@ -1,0 +1,58 @@
+name = RoomifyCore
+distribution_name = RoomifyCore
+description = Install an accomodations website built on Drupal Rooms.
+version = alpha
+core = 7.x
+
+; The exclusive flag auto-selects the Roomify profile during installation, if
+; there are no other exclusive ones.
+exclusive = TRUE
+
+; Core modules
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = dblog
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = toolbar
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+
+; Rooms modules
+
+dependencies[] = rooms
+dependencies[] = rooms_availability
+dependencies[] = rooms_availability_reference
+dependencies[] = rooms_booking
+dependencies[] = rooms_booking_manager
+dependencies[] = rooms_pricing
+dependencies[] = rooms_ui
+dependencies[] = rooms_unit
+
+; Contrib modules
+
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = addressfield
+dependencies[] = libraries
+dependencies[] = features
+dependencies[] = entity
+dependencies[] = ctools
+dependencies[] = date
+dependencies[] = date_popup
+dependencies[] = date_api
+dependencies[] = commerce
+dependencies[] = rules
+dependencies[] = entityreference
