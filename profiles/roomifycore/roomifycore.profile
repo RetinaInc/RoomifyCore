@@ -81,10 +81,11 @@ if ($validation = variable_get('roomifycore_create_unit_type')) {
   module_enable($modules, $enable_dependencies);
   $room = array(
   	'type' => 'standard_room',
+    'name' => 'Example Room',
   	);
   $unit = rooms_unit_create($room);
   rooms_unit_save($unit);
-
+  variable_del('roomifycore_create_unit_type');
   }
 }
 /**
