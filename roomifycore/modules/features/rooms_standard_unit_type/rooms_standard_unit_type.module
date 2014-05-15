@@ -4,4 +4,4 @@
  * Code for the Rooms Standard Unit Type  feature.
  */
 
-include_once 'rooms_standard_unit_type_.features.inc';
+include_once 'rooms_standard_unit_type.features.inc';

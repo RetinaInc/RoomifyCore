@@ -7,7 +7,7 @@
 /**
  * Implements hook_default_rooms_unit_type().
  */
-function rooms_standard_unit_type__default_rooms_unit_type() {
+function rooms_standard_unit_type_default_rooms_unit_type() {
   $items = array();
   $items['standard_room'] = entity_import('rooms_unit_type', '{
     "type" : "standard_room",

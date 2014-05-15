@@ -7,7 +7,7 @@
 /**
  * Implements hook_field_default_field_bases().
  */
-function rooms_standard_unit_type__field_default_field_bases() {
+function rooms_standard_unit_type_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'rooms_booking_unit_options'

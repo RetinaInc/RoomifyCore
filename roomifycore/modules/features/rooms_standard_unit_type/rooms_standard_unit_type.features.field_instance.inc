@@ -7,7 +7,7 @@
 /**
  * Implements hook_field_default_field_instances().
  */
-function rooms_standard_unit_type__field_default_field_instances() {
+function rooms_standard_unit_type_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'rooms_unit-standard_room-rooms_booking_unit_options'

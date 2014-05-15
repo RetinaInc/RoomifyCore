@@ -39,6 +39,7 @@ function roomifycore_install_tasks(&$install_state) {
     ),
   );
 }
+
 /**
  * Implements hook_install_tasks_alter().
  */
@@ -47,6 +48,7 @@ function roomifycore_install_tasks_alter(&$tasks, $install_state) {
   $css = str_replace('.profile', '.css', drupal_get_filename('profile', 'roomifycore'));
   drupal_add_css($css);
 }
+
 /**
  * RoomifyCore creation units form. The user get's to select to create a Standard UnitType
  * and a Unit Room.
@@ -54,10 +56,10 @@ function roomifycore_install_tasks_alter(&$tasks, $install_state) {
 function roomifycore_create_unit_form() {
   drupal_set_title(st('RoomifyCore : Create UnitType Example'));
   $form['welcome']['#markup'] = '<h1 class="title">' . st('Roomify options') . '</h1><p>' .
-  st('Welcome to RoomifyCore! RoomifyCore give you the possibility to create a Standard Unit Type and a Standard Unit Room!') . '</p>';
+  st('Welcome to RoomifyCore! RoomifyCore give you the possibility to create a Standard UnitType and a Unit Room') . '</p>';
   $form['standard_unit_type'] = array(
           '#type' => 'checkbox',
-          '#title' => st('Create an Example Unit'),
+          '#title' => st('Enable UnitType Creation'),
         );
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
@@ -68,26 +70,29 @@ function roomifycore_create_unit_form() {
   
   return $form;
   }
-  /**
- * Submit
+
+/**
+ * Create Standard UnitType Submit
  */
 function roomifycore_create_unit_form_submit($form, &$form_state) {
   variable_set('roomifycore_create_unit_type', $form_state['values']['standard_unit_type']);
 }
- function roomifycore_validate_unit_creation() {	
-if ($validation = variable_get('roomifycore_create_unit_type')) {
-  $modules = array('rooms_standard_unit_type_');
-  $enable_dependencies = TRUE;
-  module_enable($modules, $enable_dependencies);
-  $room = array(
-  	'type' => 'standard_room',
-    'name' => 'Example Room',
-  	);
-  $unit = rooms_unit_create($room);
-  rooms_unit_save($unit);
-  variable_del('roomifycore_create_unit_type');
+
+/**
+ * Create Standard UnitType and a Standard Room
+ */
+function roomifycore_validate_unit_creation() {	
+  if (variable_get('roomifycore_create_unit_type')) {
+    module_enable(array('rooms_standard_unit_type'), TRUE);
+    $room = array(
+  	 'type' => 'standard_room',
+  	 'name' => 'Example Room',
+  	 );
+    rooms_unit_save(rooms_unit_create($room));
+    variable_del('roomifycore_create_unit_type');
   }
 }
+
 /**
  * Do things that needs to be done after all modules have been enabled.
  */
@@ -103,5 +108,6 @@ function roomifycore_finish() {
       st('The installation encountered an error')
     );
   }
+  
   return array();
 }
