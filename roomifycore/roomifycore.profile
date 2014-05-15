@@ -54,12 +54,12 @@ function roomifycore_install_tasks_alter(&$tasks, $install_state) {
  * and a Unit Room.
  */
 function roomifycore_create_unit_form() {
-  drupal_set_title(st('RoomifyCore : Create UnitType Example'));
+  drupal_set_title(st('RoomifyCore : Create Standard Unit Type'));
   $form['welcome']['#markup'] = '<h1 class="title">' . st('Roomify options') . '</h1><p>' .
   st('Welcome to RoomifyCore! RoomifyCore give you the possibility to create a Standard UnitType and a Unit Room') . '</p>';
   $form['standard_unit_type'] = array(
           '#type' => 'checkbox',
-          '#title' => st('Enable UnitType Creation'),
+          '#title' => st('Create Standard Unit Type'),
         );
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
