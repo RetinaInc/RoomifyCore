@@ -5,35 +5,59 @@ api = 2
 projects[drupal][version] = "7.28"
 
 ; Modules
+projects[addressfield][type] = module
 projects[addressfield][version] = "1.0-beta5"
+projects[addressfield][subdir] = "contrib"
 
+projects[ctools][type] = module
 projects[ctools][version] = "1.4"
+projects[ctools][subdir] = "contrib"
 
+projects[commerce][type] = module
 projects[commerce][version] = "1.9"
+projects[commerce][subdir] = "contrib"
 
+projects[commerce_cart_expiration][type] = module
 projects[commerce_cart_expiration][version] = "1.1"
+projects[commerce_cart_expiration][subdir] = "contrib"
 
+projects[date][type] = module
 projects[date][version] = "2.7"
+projects[date][subdir] = "contrib"
 
+projects[entity][type] = module
 projects[entity][version] = "1.5"
+projects[entity][subdir] = "contrib"
 
+projects[entityreference][type] = module
 projects[entityreference][version] = "1.1"
+projects[entityreference][subdir] = "contrib"
 
+projects[features][type] = module
 projects[features][version] = "2.0"
+projects[features][subdir] = "contrib"
 
+projects[libraries][type] = module
 projects[libraries][version] = "2.2"
+projects[libraries][subdir] = "contrib"
 
-projects[rooms][type] = "module"
+projects[rooms][type] = module
 projects[rooms][download][type] = "git"
 projects[rooms][download][url] = "git@github.com:BluesparkLabs/DrupalRoomsModule.git"
 projects[rooms][directory_name] = "rooms"
+projects[rooms][subdir] = "contrib"
 
-
+projects[rules][type] = module
 projects[rules][version] = "2.7"
+projects[rules][subdir] = "contrib"
 
+projects[token][type] = module
 projects[token][version] = "1.5"
+projects[token][subdir] = "contrib"
 
+projects[views][type] = module
 projects[views][version] = "3.7"
+projects[views][subdir] = "contrib"
 
 ; Libraries
 ; Please fill the following out. Type may be one of get, git, bzr or svn,

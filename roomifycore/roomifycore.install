@@ -14,7 +14,7 @@
 function roomifycore_install() {
 
   // Use Ember theme for responsive backend admin and content creation.
-  $admin_theme = 'seven';
+  $admin_theme = 'shiny';
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
