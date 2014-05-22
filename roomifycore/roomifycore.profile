@@ -56,41 +56,94 @@ function roomifycore_install_tasks_alter(&$tasks, $install_state) {
 function roomifycore_create_unit_form() {
   drupal_set_title(st('RoomifyCore : Create Standard Unit Type'));
   $form['welcome']['#markup'] = '<h1 class="title">' . st('Roomify options') . '</h1><p>' .
-  st('Welcome to RoomifyCore! RoomifyCore give you the possibility to create a Standard UnitType and a Unit Room') . '</p>';
-  $form['standard_unit_type'] = array(
-          '#type' => 'checkbox',
-          '#title' => st('Create Standard Unit Type'),
-        );
+  st('Welcome to Roomify Core!').'</br>'.
+  st('Please enter some basic information about Your Property: '). '</p>';
+  
+  $form['property_name'] = array(
+    '#title' => t("Property Name"),
+    '#type' => 'textfield',
+  );
+  $form['price'] = array(
+    '#title' => t("Property default price per night"),
+    '#type' => 'textfield',
+  );
+  $form['max_sleeps'] = array(
+    '#title' => t("Maximum number of occupants"),
+    '#type' => 'textfield',
+  );
+  $form['min_sleeps'] = array(
+    '#title' => t("Minimum number of occupants"),
+    '#type' => 'textfield',
+  );
+  $form['max_children'] = array(
+    '#title' => t("Maximum number of children in group (optional)"),
+    '#type' => 'textfield',
+  );
+
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
     '#type' => 'submit',
     '#value' => st('Save and continue'),
     '#weight' => 15,
   );
-  
   return $form;
   }
+
+/**
+ * Create Standard UnitType Validate
+ */
+function roomifycore_create_unit_form_validate($form, &$form_state) {
+  
+  if(!is_numeric($form_state['values']['price'])) {
+    form_set_error("price", "Price must be a numeric value");
+  }
+  if(!is_numeric($form_state['values']['max_sleeps'])) {
+    form_set_error("max_sleeps","Maximum number of occupants must be a numeric value");
+  }
+  if(!is_numeric($form_state['values']['min_sleeps'])) {
+    form_set_error("min_sleeps", "Minimum number of occupants must be a numeric value");
+  }
+  if($form_state['values']['max_children'] != "" && !is_numeric($form_state['values']['max_children'])) {
+    form_set_error("max_children", "Maximum number of children must be a numeric value");
+  }
+
+}
 
 /**
  * Create Standard UnitType Submit
  */
 function roomifycore_create_unit_form_submit($form, &$form_state) {
-  variable_set('roomifycore_create_unit_type', $form_state['values']['standard_unit_type']);
+  variable_set('property_name', $form_state['values']['property_name']);
+  variable_set('price', $form_state['values']['price']);
+  variable_set('max_sleeps', $form_state['values']['max_sleeps']);
+  variable_set('min_sleeps', $form_state['values']['min_sleeps']);
+  variable_set('max_children', $form_state['values']['max_children']);
 }
 
 /**
  * Create Standard UnitType and a Standard Room
  */
 function roomifycore_validate_unit_creation() {	
-  if (variable_get('roomifycore_create_unit_type')) {
-    module_enable(array('rooms_standard_unit_type'), TRUE);
-    $room = array(
-  	 'type' => 'standard_room',
-  	 'name' => 'Example Room',
-  	 );
-    rooms_unit_save(rooms_unit_create($room));
-    variable_del('roomifycore_create_unit_type');
-  }
+  
+  module_enable(array('rooms_standard_unit_type','core_roles_and_permissions'), TRUE);
+  $unit_type = rooms_unit_type_load("standard_room", TRUE);
+  $unit_type->data['base_price'] = variable_get('price');
+  $unit_type->data['max_children'] = variable_get('max_children');
+  $unit_type->data['min_sleeps'] = variable_get('min_sleeps');
+  $unit_type->data['max_sleeps'] = variable_get('max_sleeps');
+  $room = array(
+    'type' => 'standard_room',
+    'name' => variable_get('property_name'),
+    'uid' => 1,
+    'default_state' => 1,
+  );
+  rooms_unit_save(rooms_unit_create($room));
+  variable_del('property_name');
+  variable_del('price');
+  variable_del('max_sleeps');
+  variable_del('min_sleeps');
+  variable_del('max_children');
+  
 }
 
 /**
