@@ -9,6 +9,7 @@
  *
  * Allows the profile to alter the site configuration form.
  */
+
 function roomifycore_form_install_configure_form_alter(&$form, $form_state) {
   // Pre-populate site information fields using the server name.
   $form['site_information']['site_name']['#default_value'] = $_SERVER['SERVER_NAME'];
@@ -44,14 +45,13 @@ function roomifycore_install_tasks(&$install_state) {
  * Implements hook_install_tasks_alter().
  */
 function roomifycore_install_tasks_alter(&$tasks, $install_state) {
-  // This is a workaround because drupal_get_path('module', 'roomify') doesnt work.
+  // This is a workaround because drupal_get_path doesnt work.
   $css = str_replace('.profile', '.css', drupal_get_filename('profile', 'roomifycore'));
   drupal_add_css($css);
 }
 
 /**
- * RoomifyCore creation units form. The user get's to select to create a Standard UnitType
- * and a Unit Room.
+ * Unit creation form lets user insert information for the first Casa Unit.
  */
 function roomifycore_create_unit_form() {
   drupal_set_title(st('RoomifyCore : Create Standard Unit Type'));
@@ -60,23 +60,23 @@ function roomifycore_create_unit_form() {
   st('Please enter some basic information about Your Property: '). '</p>';
   
   $form['property_name'] = array(
-    '#title' => t("Property Name"),
+    '#title' => st('Property Name'),
     '#type' => 'textfield',
   );
   $form['price'] = array(
-    '#title' => t("Property default price per night"),
+    '#title' => st('Property default price per night'),
     '#type' => 'textfield',
   );
   $form['max_sleeps'] = array(
-    '#title' => t("Maximum number of occupants"),
+    '#title' => st('Maximum number of occupants'),
     '#type' => 'textfield',
   );
   $form['min_sleeps'] = array(
-    '#title' => t("Minimum number of occupants"),
+    '#title' => st('Minimum number of occupants'),
     '#type' => 'textfield',
   );
   $form['max_children'] = array(
-    '#title' => t("Maximum number of children in group (optional)"),
+    '#title' => st('Maximum number of children in group (optional)'),
     '#type' => 'textfield',
   );
 
@@ -86,8 +86,9 @@ function roomifycore_create_unit_form() {
     '#value' => st('Save and continue'),
     '#weight' => 15,
   );
+  
   return $form;
-  }
+ }
 
 /**
  * Create Standard UnitType Validate
@@ -95,16 +96,16 @@ function roomifycore_create_unit_form() {
 function roomifycore_create_unit_form_validate($form, &$form_state) {
   
   if(!is_numeric($form_state['values']['price'])) {
-    form_set_error("price", "Price must be a numeric value");
+    form_set_error('price', st('Price must be a numeric value'));
   }
   if(!is_numeric($form_state['values']['max_sleeps'])) {
-    form_set_error("max_sleeps","Maximum number of occupants must be a numeric value");
+    form_set_error('max_sleeps', st('Maximum number of occupants must be a numeric value'));
   }
   if(!is_numeric($form_state['values']['min_sleeps'])) {
-    form_set_error("min_sleeps", "Minimum number of occupants must be a numeric value");
+    form_set_error('min_sleeps', st('Minimum number of occupants must be a numeric value'));
   }
-  if($form_state['values']['max_children'] != "" && !is_numeric($form_state['values']['max_children'])) {
-    form_set_error("max_children", "Maximum number of children must be a numeric value");
+  if($form_state['values']['max_children'] != '' && !is_numeric($form_state['values']['max_children'])) {
+    form_set_error('max_children', st('Maximum number of children must be a numeric value');
   }
 
 }
@@ -124,9 +125,8 @@ function roomifycore_create_unit_form_submit($form, &$form_state) {
  * Create Standard UnitType and a Standard Room
  */
 function roomifycore_validate_unit_creation() {	
-  
   module_enable(array('rooms_standard_unit_type','core_roles_and_permissions'), TRUE);
-  $unit_type = rooms_unit_type_load("standard_room", TRUE);
+  $unit_type = rooms_unit_type_load('standard_room', TRUE);
   $unit_type->data['base_price'] = variable_get('price');
   $unit_type->data['max_children'] = variable_get('max_children');
   $unit_type->data['min_sleeps'] = variable_get('min_sleeps');
@@ -143,8 +143,8 @@ function roomifycore_validate_unit_creation() {
   variable_del('max_sleeps');
   variable_del('min_sleeps');
   variable_del('max_children');
-  
-}
+ 
+ }
 
 /**
  * Do things that needs to be done after all modules have been enabled.
@@ -158,7 +158,7 @@ function roomifycore_finish() {
     module_list(TRUE);
     return defaultconfig_rebuild_batch_defintion(
       st('Apply configuration'),
-      st('The installation encountered an error')
+      st('The installation encountered an error.')
     );
   }
   
