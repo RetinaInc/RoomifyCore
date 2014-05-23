@@ -1,0 +1,11 @@
+#logo {
+  background: url(roomifycore.png) no-repeat 0 0;
+  width: 180px; /* Equal to width of new image */
+  height: 60px; /* Equal to height of new image */
+  /* The following lines will push the original logo image out of view. */
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 180px; /* Equal to width of new image */
+}
