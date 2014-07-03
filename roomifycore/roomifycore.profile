@@ -105,7 +105,7 @@ function roomifycore_create_unit_form_validate($form, &$form_state) {
     form_set_error('min_sleeps', st('Minimum number of occupants must be a numeric value'));
   }
   if($form_state['values']['max_children'] != '' && !is_numeric($form_state['values']['max_children'])) {
-    form_set_error('max_children', st('Maximum number of children must be a numeric value');
+    form_set_error('max_children', st('Maximum number of children must be a numeric value'));
   }
 
 }
