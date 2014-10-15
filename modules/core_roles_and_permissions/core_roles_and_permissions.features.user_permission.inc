@@ -101,14 +101,14 @@ function core_roles_and_permissions_user_default_permissions() {
   );
 
   // Exported permission: 'administer rooms_booking types'.
-  $permissions['administer rooms_booking types'] = array(
+  /*$permissions['administer rooms_booking types'] = array(
     'name' => 'administer rooms_booking types',
     'roles' => array(
       'administrator' => 'administrator',
       'rooms manager' => 'rooms manager',
     ),
     'module' => 'rooms_booking',
-  );
+  );*/
 
   // Exported permission: 'administer rooms_unit availability'.
   $permissions['administer rooms_unit availability'] = array(

@@ -40,6 +40,8 @@ dependencies[] = rooms_booking_manager
 dependencies[] = rooms_pricing
 dependencies[] = rooms_ui
 dependencies[] = rooms_unit
+dependencies[] = rooms_availability_constraints
+dependencies[] = rooms_package
 
 ; Contrib modules
 

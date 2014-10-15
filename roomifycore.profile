@@ -71,10 +71,6 @@ function roomifycore_create_unit_form() {
     '#title' => st('Maximum number of occupants'),
     '#type' => 'textfield',
   );
-  $form['min_sleeps'] = array(
-    '#title' => st('Minimum number of occupants'),
-    '#type' => 'textfield',
-  );
   $form['max_children'] = array(
     '#title' => st('Maximum number of children in group (optional)'),
     '#type' => 'textfield',
@@ -101,9 +97,6 @@ function roomifycore_create_unit_form_validate($form, &$form_state) {
   if(!is_numeric($form_state['values']['max_sleeps'])) {
     form_set_error('max_sleeps', st('Maximum number of occupants must be a numeric value'));
   }
-  if(!is_numeric($form_state['values']['min_sleeps'])) {
-    form_set_error('min_sleeps', st('Minimum number of occupants must be a numeric value'));
-  }
   if($form_state['values']['max_children'] != '' && !is_numeric($form_state['values']['max_children'])) {
     form_set_error('max_children', st('Maximum number of children must be a numeric value'));
   }
@@ -117,7 +110,6 @@ function roomifycore_create_unit_form_submit($form, &$form_state) {
   variable_set('property_name', $form_state['values']['property_name']);
   variable_set('price', $form_state['values']['price']);
   variable_set('max_sleeps', $form_state['values']['max_sleeps']);
-  variable_set('min_sleeps', $form_state['values']['min_sleeps']);
   variable_set('max_children', $form_state['values']['max_children']);
 }
 
@@ -130,7 +122,7 @@ function roomifycore_validate_unit_creation() {
   $unit_type->data['base_price'] = variable_get('price');
   $unit_type->data['max_children'] = variable_get('max_children');
   $unit_type->data['min_sleeps'] = variable_get('min_sleeps');
-  $unit_type->data['max_sleeps'] = variable_get('max_sleeps');
+  $unit_type->data['max_sleeps'] = 1;
   $room = array(
     'type' => 'standard_room',
     'name' => variable_get('property_name'),

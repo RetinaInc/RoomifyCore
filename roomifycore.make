@@ -21,6 +21,10 @@ projects[commerce_cart_expiration][type] = module
 projects[commerce_cart_expiration][version] = "1.1"
 projects[commerce_cart_expiration][subdir] = "contrib"
 
+projects[commerce_stock][type] = module
+projects[commerce_stock][version] = "2.0"
+projects[commerce_stock][subdir] = "contrib"
+
 projects[date][type] = module
 projects[date][version] = "2.7"
 projects[date][subdir] = "contrib"
@@ -47,6 +51,18 @@ projects[rooms][download][url] = "git@github.com:BluesparkLabs/DrupalRoomsModule
 projects[rooms][directory_name] = "rooms"
 projects[rooms][subdir] = "contrib"
 
+projects[rooms_availability_constraints][type] = module
+projects[rooms_availability_constraints][download][type] = "git"
+projects[rooms_availability_constraints][download][url] = "git@github.com:BluesparkLabs/rooms_availability_constraints.git"
+projects[rooms_availability_constraints][directory_name] = "rooms_availability_constraints"
+projects[rooms_availability_constraints][subdir] = "contrib"
+
+projects[rooms_package][type] = module
+projects[rooms_package][download][type] = "git"
+projects[rooms_package][download][url] = "git@github.com:BluesparkLabs/rooms_package.git"
+projects[rooms_package][directory_name] = "rooms_package"
+projects[rooms_package][subdir] = "contrib"
+
 projects[rules][type] = module
 projects[rules][version] = "2.7"
 projects[rules][subdir] = "contrib"
@@ -55,13 +71,18 @@ projects[token][type] = module
 projects[token][version] = "1.5"
 projects[token][subdir] = "contrib"
 
+projects[variable][type] = module
+projects[variable][version] = "2.5"
+projects[variable][subdir] = "contrib"
+
 projects[views][type] = module
-projects[views][version] = "3.7"
+projects[views][version] = "3.8"
 projects[views][subdir] = "contrib"
 
 ; Libraries
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
+
 libraries[rooms_fullcalendar][download][type] = "file"
 libraries[rooms_fullcalendar][download][url] = "http://www.drupalrooms.com/sites/default/files/fullcalendar-1.5.4.zip"
 libraries[rooms_fullcalendar][directory_name] = "rooms_fullcalendar"

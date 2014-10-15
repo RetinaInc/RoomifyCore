@@ -14,11 +14,11 @@ function rooms_standard_unit_type_default_rooms_unit_type() {
     "label" : "Standard Room",
     "weight" : "0",
     "data" : {
-      "base_price" : "100",
-      "min_sleeps" : "2",
-      "max_sleeps" : "2",
-      "min_children" : "0",
-      "max_children" : "1",
+      "base_price" : "",
+      "min_sleeps" : "",
+      "max_sleeps" : "",
+      "min_children" : "",
+      "max_children" : "",
       "rooms_description_source" : ""
     },
     "rooms_booking_unit_options" : [],
