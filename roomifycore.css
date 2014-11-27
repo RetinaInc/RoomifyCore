@@ -9,3 +9,17 @@
   box-sizing: border-box;
   padding-left: 180px; /* Equal to width of new image */
 }
+#edit-price-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.form-item-price,
+.form-item-commerce-default-currency {
+  display: inline-block;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+.form-item-price {
+  margin-right: 1em;
+}
