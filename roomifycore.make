@@ -6,31 +6,31 @@ projects[drupal][version] = "7.28"
 
 ; Modules
 projects[addressfield][type] = module
-projects[addressfield][version] = "1.0-beta5"
+projects[addressfield][version] = "1.0"
 projects[addressfield][subdir] = "contrib"
 
 projects[ctools][type] = module
-projects[ctools][version] = "1.4"
+projects[ctools][version] = "1.7"
 projects[ctools][subdir] = "contrib"
 
 projects[commerce][type] = module
-projects[commerce][version] = "1.9"
+projects[commerce][version] = "1.11"
 projects[commerce][subdir] = "contrib"
 
 projects[commerce_cart_expiration][type] = module
-projects[commerce_cart_expiration][version] = "1.1"
+projects[commerce_cart_expiration][version] = "1.2"
 projects[commerce_cart_expiration][subdir] = "contrib"
 
 projects[commerce_stock][type] = module
-projects[commerce_stock][version] = "2.0"
+projects[commerce_stock][version] = "2.1"
 projects[commerce_stock][subdir] = "contrib"
 
 projects[date][type] = module
-projects[date][version] = "2.7"
+projects[date][version] = "2.8"
 projects[date][subdir] = "contrib"
 
 projects[entity][type] = module
-projects[entity][version] = "1.5"
+projects[entity][version] = "1.6"
 projects[entity][subdir] = "contrib"
 
 projects[entityreference][type] = module
@@ -38,8 +38,12 @@ projects[entityreference][version] = "1.1"
 projects[entityreference][subdir] = "contrib"
 
 projects[features][type] = module
-projects[features][version] = "2.0"
+projects[features][version] = "2.4"
 projects[features][subdir] = "contrib"
+
+projects[jquery_update][type] = module
+projects[jquery_update][version] = "2.5"
+projects[jquery_update][subdir] = "contrib"
 
 projects[libraries][type] = module
 projects[libraries][version] = "2.2"
@@ -47,28 +51,28 @@ projects[libraries][subdir] = "contrib"
 
 projects[rooms][type] = module
 projects[rooms][download][type] = "git"
-projects[rooms][download][url] = "git@github.com:BluesparkLabs/DrupalRoomsModule.git"
+projects[rooms][download][url] = "git@github.com:Roomify/rooms.git"
 projects[rooms][directory_name] = "rooms"
 projects[rooms][subdir] = "contrib"
 
 projects[rooms_availability_constraints][type] = module
 projects[rooms_availability_constraints][download][type] = "git"
-projects[rooms_availability_constraints][download][url] = "git@github.com:BluesparkLabs/rooms_availability_constraints.git"
+projects[rooms_availability_constraints][download][url] = "git@github.com:Roomify/rooms_availability_constraints.git"
 projects[rooms_availability_constraints][directory_name] = "rooms_availability_constraints"
 projects[rooms_availability_constraints][subdir] = "contrib"
 
 projects[rooms_package][type] = module
 projects[rooms_package][download][type] = "git"
-projects[rooms_package][download][url] = "git@github.com:BluesparkLabs/rooms_package.git"
+projects[rooms_package][download][url] = "git@github.com:Roomify/rooms_package.git"
 projects[rooms_package][directory_name] = "rooms_package"
 projects[rooms_package][subdir] = "contrib"
 
 projects[rules][type] = module
-projects[rules][version] = "2.7"
+projects[rules][version] = "2.9"
 projects[rules][subdir] = "contrib"
 
 projects[token][type] = module
-projects[token][version] = "1.5"
+projects[token][version] = "1.6"
 projects[token][subdir] = "contrib"
 
 projects[variable][type] = module
@@ -76,14 +80,19 @@ projects[variable][version] = "2.5"
 projects[variable][subdir] = "contrib"
 
 projects[views][type] = module
-projects[views][version] = "3.8"
+projects[views][version] = "3.10"
 projects[views][subdir] = "contrib"
 
 ; Libraries
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
 
+libraries[moment][download][type] = "file"
+libraries[moment][download][url] = "http://momentjs.com/downloads/moment.min.js"
+libraries[moment][directory_name] = "moment"
+libraries[moment][type] = "library"
+
 libraries[rooms_fullcalendar][download][type] = "file"
-libraries[rooms_fullcalendar][download][url] = "http://www.drupalrooms.com/sites/default/files/fullcalendar-1.5.4.zip"
+libraries[rooms_fullcalendar][download][url] = "http://www.roomify.us/sites/default/files/rooms_fullcalendar-2.1.1.zip"
 libraries[rooms_fullcalendar][directory_name] = "rooms_fullcalendar"
 libraries[rooms_fullcalendar][type] = "library"
