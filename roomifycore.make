@@ -51,19 +51,20 @@ projects[libraries][subdir] = "contrib"
 
 projects[rooms][type] = module
 projects[rooms][download][type] = "git"
-projects[rooms][download][url] = "git@github.com:Roomify/rooms.git"
+projects[rooms][download][url] = "https://github.com/Roomify/rooms.git"
+projects[rooms][download][branch] = 7.x-1.x
 projects[rooms][directory_name] = "rooms"
 projects[rooms][subdir] = "contrib"
 
 projects[rooms_availability_constraints][type] = module
 projects[rooms_availability_constraints][download][type] = "git"
-projects[rooms_availability_constraints][download][url] = "git@github.com:Roomify/rooms_availability_constraints.git"
+projects[rooms_availability_constraints][download][url] = "https://github.com/Roomify/rooms_availability_constraints.git"
 projects[rooms_availability_constraints][directory_name] = "rooms_availability_constraints"
 projects[rooms_availability_constraints][subdir] = "contrib"
 
 projects[rooms_package][type] = module
 projects[rooms_package][download][type] = "git"
-projects[rooms_package][download][url] = "git@github.com:Roomify/rooms_package.git"
+projects[rooms_package][download][url] = "https://github.com/Roomify/rooms_package.git"
 projects[rooms_package][directory_name] = "rooms_package"
 projects[rooms_package][subdir] = "contrib"
 
