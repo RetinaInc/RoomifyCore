@@ -1,0 +1,5 @@
+# Ignore library downloadds
+/libraries/*
+
+# Ignore downloaded modules
+/modules/contrib/*

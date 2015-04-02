@@ -2,7 +2,7 @@
 core = 7.x
 
 api = 2
-projects[drupal][version] = "7.28"
+projects[drupal][version] = "7.36"
 
 ; Modules
 projects[addressfield][type] = module
@@ -85,9 +85,6 @@ projects[views][version] = "3.10"
 projects[views][subdir] = "contrib"
 
 ; Libraries
-; Please fill the following out. Type may be one of get, git, bzr or svn,
-; and url is the url of the download.
-
 libraries[moment][download][type] = "file"
 libraries[moment][download][url] = "http://momentjs.com/downloads/moment.min.js"
 libraries[moment][directory_name] = "moment"
